@@ -121,7 +121,7 @@ processImage(Mat image)
         double angleOffset = kHorizontalFOVDeg / 2 - kCameraPitchDeg;
         double thetaOffset = theta - angleOffset;
         double range = (kTargetTopHeight - kCameraHeight)/tan(toRadians(thetaOffset));
-        // cout << "Calculated range: " << range << " in OR " << range / 12.0 << " ft" << endl;
+        cout << "Calculated range: " << range << " in OR " << range / 12.0 << " ft" << endl;
     }
     else
         cout << "No target found" << endl;
@@ -146,7 +146,8 @@ main(int, char**)
     int cnt;
     time_t start, stop;
 
-    const string videoStreamAddress = "http://kitchen-cam.research.bell-labs.com/img/video.mjpeg";
+    const string videoStreamAddress = "http://10.36.37.11/mjpg/video.mjpg";
+    //const string videoStreamAddress = "rtsp://FRC:FRC@10.36.37.11:554/axis-media/media.amp?videocodec=h264&streamprofile=Balanced";
 
     if(!vcap.open(videoStreamAddress)) {
         cout << "Error opening video stream or file" << endl;
