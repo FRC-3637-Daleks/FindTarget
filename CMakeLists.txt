@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project( CVTest )
 find_package( OpenCV REQUIRED )
+find_package( raspicam REQUIRED )
 add_executable( findtarget findtarget.cpp )
 target_link_libraries( findtarget ${OpenCV_LIBS} ${raspicam_CV_LIBS} )
