@@ -55,6 +55,7 @@ sendPacket(const bool isHot, const int range = RANGE_INVALID)
     string data = string("HOT=") + hotStr + string(" DIST=") + to_string(range);
     if (verbose)
         cout << "Sending data: " << data << endl;
+    strncpy(sockBuf, data.c_str(), sizeof(sockBuf));
     if(sendto(serverSocket, sockBuf, sizeof(sockBuf), 0, (struct sockaddr *)&serverSocketAddr, sizeof(struct sockaddr_in)) == -1) {
         cerr << "Error sending data" << endl;
         return 1;
